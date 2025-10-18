@@ -61,7 +61,7 @@ class calculate():
         # ORIGINAL CODE:
         #        self.button_open = Button(self.root, text="(", width=3, command=lambda: self.ins('('),relief=RAISED)
         # MODIFIED TO:
-        self.button_open = Button(self.root, text="(", width=3, command=lambda: self.ins('+'),relief=RAISED)
+        self.button_open = Button(self.root, text="(", width=3, command=lambda: self.ins('*'),relief=RAISED)
         self.button_open.grid(row=4, column=1, padx=3, pady=3)
         self.button_open.config(font=("Arial", 18))
 
