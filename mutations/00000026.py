@@ -119,6 +119,206 @@ class calculate():
         self.resultwindow.delete(1, 'end')
         self.resultwindow.insert(0, answer)
 
+    # Test cases:
+    def test_MR1MTG1(self):
+        print("SI [3+2=], FI [4+1=]")
+        self.resultwindow.delete(0, 'end')
+        self.button3.invoke()
+        self.buttonplus.invoke()
+        self.button2.invoke()
+        self.buttonresult.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button4.invoke()
+        self.buttonplus.invoke()
+        self.button1.invoke()
+        self.buttonresult.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO == FO, f"Addition failed: got {SO} != {FO}"
+
+    def test_MR1MTG2(self):
+        print("SI [7-3=], FI [6-2=]")
+        self.resultwindow.delete(0, 'end')
+        self.button7.invoke()
+        self.buttonminus.invoke()
+        self.button3.invoke()
+        self.buttonresult.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button6.invoke()
+        self.buttonminus.invoke()
+        self.button2.invoke()
+        self.buttonresult.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO == FO, f"Minus failed: got {SO} != {FO}"
+
+    def test_MR1MTG3(self):
+        print("SI [6*5=], FI [3*10=]")
+        self.resultwindow.delete(0, 'end')
+        self.button6.invoke()
+        self.buttonmultiply.invoke()
+        self.button5.invoke()
+        self.buttonresult.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button3.invoke()
+        self.buttonmultiply.invoke()
+        self.button1.invoke()
+        self.button0.invoke()
+        self.buttonresult.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO == FO, f"Multiplication failed: got {SO} != {FO}"
+
+    def test_MR1MTG4(self):
+        print("SI [30/3=], FI [100/10=]")
+        self.resultwindow.delete(0, 'end')
+        self.button3.invoke()
+        self.button0.invoke()
+        self.buttondivide.invoke()
+        self.button3.invoke()
+        self.buttonresult.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button1.invoke()
+        self.button0.invoke()
+        self.button0.invoke()
+        self.buttondivide.invoke()
+        self.button1.invoke()
+        self.button0.invoke()
+        self.buttonresult.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO == FO, f"Division failed: got {SO} != {FO}"
+
+    def test_MR1MTG5(self):
+        print("SI [5*(2+2)=], FI [5*2*2=]")
+        self.resultwindow.delete(0, 'end')
+        self.button5.invoke()
+        self.buttonmultiply.invoke()
+        self.button_open.invoke()
+        self.button2.invoke()
+        self.buttonplus.invoke()
+        self.button2.invoke()
+        self.button_close.invoke()
+        self.buttonresult.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button5.invoke()
+        self.buttonmultiply.invoke()
+        self.button2.invoke()
+        self.buttonmultiply.invoke()
+        self.button2.invoke()
+        self.buttonresult.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO == FO, f"Test failed: got {SO} != {FO}"
+
+    def test_MR2MTG1(self):
+        print("SI [1], FI [0]")
+        self.resultwindow.delete(0, 'end')
+        self.button1.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button0.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO != FO, f"1 and 0 failed: got {SO} == {FO}"
+
+    def test_MR2MTG2(self):
+        print("SI [11 Del], FI [12 Del]")
+        self.resultwindow.delete(0, 'end')
+        self.button1.invoke()
+        self.button1.invoke()
+        self.buttondeleteall.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button1.invoke()
+        self.button2.invoke()
+        self.buttondeleteall.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO == FO, f"Del failed: got {SO} != {FO}"
+
+    def test_MR2MTG3(self):
+        print("SI [11 C], FI [22 C]")
+        self.resultwindow.delete(0, 'end')
+        self.button1.invoke()
+        self.button1.invoke()
+        self.buttoncancel.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button2.invoke()
+        self.button2.invoke()
+        self.buttoncancel.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO == FO, f"C failed: got {SO} != {FO}"
+
+    def test_MR2MTG4(self):
+        print("SI [3+6=], FI [4+5=]")
+        self.resultwindow.delete(0, 'end')
+        self.button3.invoke()
+        self.buttonplus.invoke()
+        self.button6.invoke()
+        self.buttonresult.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button4.invoke()
+        self.buttonplus.invoke()
+        self.button5.invoke()
+        self.buttonresult.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO == FO, f"Result failed: got {SO} != {FO}"
+
+    def test_MR2MTG5(self):
+        print("SI [11 Del + 3 =], FI [12 Del + 3 =]")
+        self.resultwindow.delete(0, 'end')
+        self.button1.invoke()
+        self.button1.invoke()
+        self.buttondeleteall.invoke()
+        self.buttonplus.invoke()
+        self.button3.invoke()
+        self.buttonresult.invoke()
+        SO = self.resultwindow.get()
+
+        self.resultwindow.delete(0, 'end')
+        self.button1.invoke()
+        self.button2.invoke()
+        self.buttondeleteall.invoke()
+        self.buttonplus.invoke()
+        self.button3.invoke()
+        self.buttonresult.invoke()
+        FO = self.resultwindow.get()
+
+        assert SO == FO, f"Del failed: got {SO} != {FO}"
+
+    # Run tests
+    def run_tests(self):
+        print("Running calculator tests...\n")
+        tests = [self.test_MR1MTG1, self.test_MR1MTG2, self.test_MR1MTG3, self.test_MR1MTG4, self.test_MR1MTG5, self.test_MR2MTG1, self.test_MR2MTG2, self.test_MR2MTG3, self.test_MR2MTG4, self.test_MR2MTG5]
+        for test in tests:
+            try:
+                test()
+            except AssertionError as e:
+                print("❌", e)
+            else:
+                print("✅", test.__name__, "passed")
+
+        print("\nAll tests done. Closing calculator.")
+        self.root.destroy()
 
 if __name__ == "__main__":
     calculate()
