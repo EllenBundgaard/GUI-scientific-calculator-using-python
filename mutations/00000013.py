@@ -96,6 +96,7 @@ class calculate():
         self.buttonresult.grid(row=4, column=3, padx=3, pady=3, columnspan=2)
         self.buttonresult.config(font=("Arial", 18))
 
+        self.root.after(500, self.run_tests)
         self.root.mainloop()
 
     def ins(self,val):
@@ -313,9 +314,9 @@ class calculate():
             try:
                 test()
             except AssertionError as e:
-                print("❌", e)
+                print("Error", e, "\n")
             else:
-                print("✅", test.__name__, "passed")
+                print("✓", test.__name__, "passed\n")
 
         print("\nAll tests done. Closing calculator.")
         self.root.destroy()

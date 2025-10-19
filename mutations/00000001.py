@@ -314,9 +314,9 @@ class calculate():
             try:
                 test()
             except AssertionError as e:
-                print("❌", e)
+                print("Error", e, "\n")
             else:
-                print("✅", test.__name__, "passed")
+                print("✓", test.__name__, "passed\n")
 
         print("\nAll tests done. Closing calculator.")
         self.root.destroy()
